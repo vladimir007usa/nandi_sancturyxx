@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, ArrowRight } from "lucide-react";
 
 // Assets
-import vishvambar5Img from "@/assets/vishvambar5.jpg";
+import vishvambar5Img from "@/assets/Vishvambar5.jpg";
 import mahaveer5Img from "@/assets/mahaveer5.jpeg";
 import dharmkshetra1Img from "@/assets/dharmkshetra1.jpg";
 import angad1Img from "@/assets/angad1.jpg";
