@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send, Facebook, Instagram, Youtube } from "lucide-react";
+import { toast } from "sonner";
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,9 +12,38 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message! We will respond shortly.");
+    setIsSubmitting(true);
+
+    const submissionData = new FormData();
+    // Your Web3Forms Access Key
+    submissionData.append("access_key", "cc7c3de4-3739-498e-a656-252b886420fa");
+    submissionData.append("name", formData.name);
+    submissionData.append("email", formData.email);
+    submissionData.append("subject", formData.subject);
+    submissionData.append("message", formData.message);
+    submissionData.append("from_name", "Nandi Sanctuary Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submissionData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Thank you for your message! We will respond shortly.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -31,8 +62,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Info & Form */}
-      <section className="section-padding bg-background">
-        <div className="container-wide mx-auto">
+      <section className="section-padding bg-background py-16">
+        <div className="container-wide mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
@@ -48,20 +79,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Address</h3>
                     <p className="text-muted-foreground text-sm">
-                      Nandi Sanctuary<br />
-                      Sri Dham Mayapur, Nadia<br />
-                      West Bengal, India
+                      Mayapur, Taranpur, Mathpara<br />
+                      West Bengal 741313, India
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <p className="text-muted-foreground text-sm">+91 XXX XXX XXXX</p>
                   </div>
                 </div>
 
@@ -71,7 +91,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <p className="text-muted-foreground text-sm">contact@nandisanctuary.org</p>
+                    <p className="text-muted-foreground text-sm">pfa.care@gmail.com</p>
                   </div>
                 </div>
 
@@ -82,9 +102,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Visiting Hours</h3>
                     <p className="text-muted-foreground text-sm">
-                      Monday – Saturday<br />
-                      9:00 AM – 5:00 PM<br />
-                      <span className="text-xs">(Please schedule visits in advance)</span>
+                      <span className="text-xs">On Appointment</span>
                     </p>
                   </div>
                 </div>
@@ -94,20 +112,26 @@ const Contact = () => {
               <div className="mt-10">
                 <h3 className="font-semibold text-foreground mb-4">Follow Us</h3>
                 <div className="flex gap-3">
-                  <a
-                    href="#"
+                  <a 
+                    href="https://www.facebook.com/peopleforanimalsinternational" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <Facebook className="w-5 h-5" />
                   </a>
-                  <a
-                    href="#"
+                  <a 
+                    href="https://www.instagram.com/nandi_sanctuary?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a
-                    href="#"
+                  <a 
+                    href="https://www.youtube.com/@NandiSanctuary?sub_confirmation=1" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <Youtube className="w-5 h-5" />
@@ -118,7 +142,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-sanctuary-cream p-8 md:p-12 rounded-2xl">
+              <div className="bg-muted/30 p-8 md:p-12 rounded-2xl">
                 <h2 className="font-display text-2xl font-bold text-foreground mb-8">
                   Send Us a Message
                 </h2>
@@ -126,69 +150,67 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Full Name *
-                      </label>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">Full Name *</label>
                       <input
                         type="text"
                         id="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition"
                         placeholder="Your name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email Address *
-                      </label>
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email Address *</label>
                       <input
                         type="email"
                         id="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition"
                         placeholder="your@email.com"
                       />
                     </div>
                   </div>
 
                   <div className="mt-6">
-                    <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                      Subject *
-                    </label>
+                    <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">Subject *</label>
                     <input
                       type="text"
                       id="subject"
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition"
                       placeholder="What is this regarding?"
                     />
                   </div>
 
                   <div className="mt-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Message *
-                    </label>
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Message *</label>
                     <textarea
                       id="message"
                       required
                       rows={6}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition resize-none"
                       placeholder="Your message..."
                     />
                   </div>
 
                   <div className="mt-8">
-                    <Button type="submit" variant="donate" size="xl">
-                      <Send className="w-5 h-5" />
-                      Send Message
+                    <Button type="submit" size="lg" disabled={isSubmitting} className="w-full md:w-auto">
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </div>
                 </form>
@@ -198,15 +220,18 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-80 bg-muted flex items-center justify-center">
-        <div className="text-center">
-          <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-          <p className="text-muted-foreground">
-            Interactive map coming soon<br />
-            <span className="text-sm">Sri Dham Mayapur, Nadia, West Bengal, India</span>
-          </p>
-        </div>
+      {/* Map Section - Restored original design and location */}
+      <section className="h-[450px] w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14652.81050212933!2d88.4081629!3d23.4264341!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f81f94941672f7%3A0xf07cc61b34de21d9!2sNandi%20Sanctuary!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Nandi Sanctuary Location"
+        ></iframe>
       </section>
     </div>
   );

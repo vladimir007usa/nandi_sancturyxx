@@ -19,13 +19,28 @@ const Footer = () => {
               A haven for rescued animals in the heart of Bengal. We believe every living being deserves love, care, and protection.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+              <a 
+                href="https://www.facebook.com/peopleforanimalsinternational" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+              <a 
+                href="https://www.instagram.com/nandi_sanctuary?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
+              <a 
+                href="https://www.youtube.com/@NandiSanctuary?sub_confirmation=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -35,16 +50,21 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {["About Us", "Our Mission", "What We Do", "Gallery", "Volunteer", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">About Us</Link>
+              </li>
+              <li>
+                <Link to="/our-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Our Mission</Link>
+              </li>
+              <li>
+                <Link to="/our-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">What We Do</Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Gallery</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Contact</Link>
+              </li>
             </ul>
           </div>
 
@@ -52,16 +72,21 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-6">Support Us</h4>
             <ul className="space-y-3">
-              {["Donate Now", "Sponsor an Animal", "Monthly Giving", "Volunteer", "Partner With Us"].map((item) => (
-                <li key={item}>
-                  <Link
-                    to="/donate"
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Donate Now</Link>
+              </li>
+              <li>
+                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Sponsor an Animal</Link>
+              </li>
+              <li>
+                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Monthly Giving</Link>
+              </li>
+              <li>
+                <Link to="/stories" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Partner With Us</Link>
+              </li>
+              <li>
+                <Link to="/animal-rights" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Animals legal rights</Link>
+              </li>
             </ul>
           </div>
 
@@ -81,7 +106,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-sanctuary-gold" />
-                <span className="text-primary-foreground/80 text-sm">contact@nandisanctuary.org</span>
+                <span className="text-primary-foreground/80 text-sm">pfa.care@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -92,7 +117,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-wide mx-auto px-4 md:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/60">
-            <p>© 2024 Nandi Sanctuary. All rights reserved.</p>
+            <p>© 2026 Nandi Sanctuary. All rights reserved.</p>
             <p className="text-center md:text-right">
               Operated by People for Animals International • Protecting life with love
             </p>

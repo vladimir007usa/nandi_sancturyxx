@@ -1,23 +1,35 @@
-import heroImage from "@/assets/hero-sanctuary.jpg";
-import cowPortrait from "@/assets/cow-portrait.jpg";
-import volunteersImage from "@/assets/volunteers.jpg";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Camera, Heart } from "lucide-react";
 
+// Assets Imports
+import dogsImage from "@/assets/dogs.jpeg";
+import nandiImage from "@/assets/nandi.jpg";
+import govtImage from "@/assets/govt.jpg";
+import elderImage from "@/assets/elder.jpg";
+import gausevaImage from "@/assets/gauseva.jpeg";
+import animalImage from "@/assets/animal.jpg";
+import cowImage from "@/assets/cow.jpg";
+import coreImage from "@/assets/core.jpg";
+import volunteersImage from "@/assets/volunteers.jpg";
+
 const galleryImages = [
-  { src: heroImage, alt: "Peaceful cows grazing in the sanctuary pastures", category: "Sanctuary Life" },
-  { src: cowPortrait, alt: "Close-up of a rescued cow at the sanctuary", category: "Our Residents" },
-  { src: volunteersImage, alt: "Volunteers caring for animals", category: "Volunteers" },
-  { src: heroImage, alt: "Morning feeding time at the sanctuary", category: "Daily Care" },
-  { src: cowPortrait, alt: "A gentle soul at Nandi Sanctuary", category: "Our Residents" },
-  { src: volunteersImage, alt: "Community members with sanctuary animals", category: "Community" },
+  { src: nandiImage, alt: "Nandi at the heart of our sanctuary", category: "Our Residents" },
+  { src: dogsImage, alt: "Rescued dogs enjoying the sanctuary grounds", category: "Sanctuary Life" },
+  { src: volunteersImage, alt: "Dedicated volunteers providing care and love", category: "Volunteers" },
+  { src: govtImage, alt: "Official visits and community recognition", category: "Governance" },
+  { src: elderImage, alt: "Wisdom and care within our sanctuary community", category: "Elder Care" },
+  { src: gausevaImage, alt: "The sacred practice of Gauseva", category: "Daily Care" },
+  { src: animalImage, alt: "A peaceful resident at the sanctuary", category: "Our Residents" },
+  { src: cowImage, alt: "Gentle souls finding peace", category: "Our Residents" },
+  { src: coreImage, alt: "The core values and heart of our mission", category: "About Us" },
 ];
 
 const Gallery = () => {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="bg-sanctuary-cream py-20 md:py-28">
         <div className="container-wide mx-auto px-4 md:px-8 text-center">
           <Camera className="w-12 h-12 text-primary mx-auto mb-6" />
@@ -61,7 +73,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* More Photos Coming */}
+      {/* More Photos Section */}
       <section className="py-16 bg-sanctuary-cream">
         <div className="container-narrow mx-auto text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
@@ -70,18 +82,30 @@ const Gallery = () => {
           <p className="text-muted-foreground mb-8">
             Follow us on social media for daily updates and behind-the-scenes glimpses of sanctuary life.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button variant="outline" size="lg">
-              Follow on Instagram
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button variant="outline" size="lg" asChild>
+              <a 
+                href="https://www.instagram.com/nandi_sanctuary?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Follow on Instagram
+              </a>
             </Button>
-            <Button variant="outline" size="lg">
-              Follow on Facebook
+            <Button variant="outline" size="lg" asChild>
+              <a 
+                href="https://www.facebook.com/peopleforanimalsinternational" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Follow on Facebook
+              </a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Call to Action */}
       <section className="py-16 bg-primary">
         <div className="container-narrow mx-auto text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
@@ -96,7 +120,7 @@ const Gallery = () => {
             </Button>
             <Button variant="heroOutline" size="lg" asChild>
               <Link to="/donate">
-                <Heart className="w-5 h-5" />
+                <Heart className="w-5 h-5 mr-2" />
                 Support Us
               </Link>
             </Button>

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Leaf } from "lucide-react";
-import cowPortrait from "@/assets/cow-portrait.jpg";
+
+// Asset Imports
+import cowPortrait from "@/assets/story.jpg";
+import coreImage from "@/assets/core.jpg"; // Newly added image
 
 const About = () => {
   return (
@@ -18,7 +21,7 @@ const About = () => {
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
               Founded on the principles of non-violence and compassion, Nandi Sanctuary has been a 
-              beacon of hope for animals in need for over 15 years.
+              beacon of hope for animals in need for over 12 years.
             </p>
           </div>
         </div>
@@ -34,24 +37,34 @@ const About = () => {
               </h2>
               <div className="prose prose-lg text-muted-foreground space-y-6">
                 <p>
-                  Nandi Sanctuary was founded by Dharmveer Singh, known as Dayal Mukunda Das, and his 
+                  Nandi Sanctuary was founded by Dharmveer Singh, also known as Dayal Mukunda Das, and his 
                   wife Yashomati Singh. Driven by a deep spiritual commitment to protect all living 
                   beings, they established this haven in the sacred lands of Sri Dham Mayapur, Nadia, 
                   West Bengal.
                 </p>
                 <p>
                   What started as a small shelter for a few rescued cows has grown into a comprehensive 
-                  sanctuary serving hundreds of animals. Our founders believed that every creature, 
-                  regardless of their condition or age, deserves love, care, and a dignified life.
+                  sanctuary serving hundreds of animals and helping hundreds of farmer families in the remote villages of West bengal. Our founders believed that every creature, 
+                  regardless of their type deserves love, care, and a dignified life.
                 </p>
                 <p>
-                  Today, Nandi Sanctuary is operated under the umbrella of People for Animals International, 
-                  one of India's largest animal welfare organizations. This partnership allows us to 
-                  extend our reach and impact, ensuring more animals receive the help they desperately need.
+                  Today, Nandi Sanctuary is operated under the umbrella of People for Animals International. 
+                  Our team at Nandi Sanctuary works hard to reach as many animals and farmer families to help in their need. 
                 </p>
               </div>
 
-              <div className="mt-12 p-8 bg-sanctuary-cream rounded-2xl">
+              {/* Photo added above Core Values with 3:2 Ratio */}
+              <div className="mt-12 mb-6">
+                <div className="aspect-[3/2] overflow-hidden rounded-2xl shadow-md border border-border/50">
+                  <img 
+                    src={coreImage} 
+                    alt="Our core mission in action" 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </div>
+
+              <div className="p-8 bg-sanctuary-cream rounded-2xl">
                 <h3 className="font-display text-xl font-semibold text-foreground mb-4">
                   Our Core Values
                 </h3>
@@ -97,7 +110,7 @@ const About = () => {
 
               <div className="mt-8 flex gap-4">
                 <Button variant="donate" size="lg" className="flex-1" asChild>
-                  <Link to="/donate">Support Our Work</Link>
+                  <Link to="/donate">Support Our mission</Link>
                 </Button>
                 <Button variant="outline" size="lg" className="flex-1" asChild>
                   <Link to="/contact">Visit Us</Link>
