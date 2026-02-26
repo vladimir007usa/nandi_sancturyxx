@@ -95,8 +95,7 @@ const Donate = () => {
             Join us in saving Lives
           </h1>
           <p className="text-white/85 text-lg max-w-2xl mx-auto">
-            By contributing in any way, you become part of giving injured and abandoned animals at Nandi Sanctuary a safe, healthy, and dignified second chance at life.
-          </p>
+            Your support directly enables Nandi Sanctuary to offer injured and abandoned animals a secure environment, proper medical care, and a dignified opportunity to live again.
         </div>
       </section>
 
