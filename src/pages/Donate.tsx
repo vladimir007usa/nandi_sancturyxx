@@ -96,6 +96,7 @@ const Donate = () => {
           </h1>
           <p className="text-white/85 text-lg max-w-2xl mx-auto">
             Your support directly enables Nandi Sanctuary to offer injured and abandoned animals a secure environment, proper medical care, and a dignified opportunity to live again.
+          </p>
         </div>
       </section>
 
