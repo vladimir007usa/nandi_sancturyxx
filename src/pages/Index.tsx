@@ -123,7 +123,7 @@ const Index = () => {
               
               <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Nandi Sanctuary is a rural animal welfare initiative in Nadia District, West Bengal, operating as a project of People for Animals International. It was founded by Dharmveer Singh (Dayal Mukunda Das) and his wife, Yashomati Singh.
+                  Nandi Sanctuary is a rural animal welfare initiative in Nadia District, West Bengal, operating as a project of People for Animals International. It was Founded with deep love and compassion by Dharmveer Singh and Yashomati Singh, this unique sanctuary offers rescued animals protection, happiness, dignity, and lifelong care.
                 </p>
                 <p>
                   The sanctuary is dedicated to the rescue, rehabilitation, and lifelong care of injured, abandoned, and vulnerable animals. 
