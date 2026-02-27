@@ -47,28 +47,27 @@ const Trust = () => {
             </p>
           </header>
 
-          {/* Featured Image */}
+          {/* Top Image (Featured) */}
           <div className="rounded-3xl overflow-hidden mb-12 shadow-xl">
             <img src={new10} alt="Bonds of trust" className="w-full aspect-video object-cover" />
           </div>
 
           {/* Main Story Content */}
-          <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-8">
+          <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-12">
             <p className="text-foreground text-lg font-medium">
               The Nandi Sanctuary team has been instrumental in rescuing nearly 200 animals over the years. 
               Today, more than 70 rescued cows and bulls receive daily, in-house care marked by deep personal attention.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 my-12 items-center">
-              <div className="rounded-2xl overflow-hidden shadow-md">
-                <img src={new11} alt="Caregiver with cow" className="w-full h-80 object-cover" />
+            {/* Middle Image - Now Full Width/Big */}
+            <div className="space-y-6">
+              <div className="rounded-3xl overflow-hidden shadow-xl">
+                <img src={new11} alt="Caregiver with cow" className="w-full aspect-video object-cover" />
               </div>
-              <div>
-                <p>
-                  Each caregiver looks after only six to seven animals, and that is where real bonds are formed. 
-                  They come to understand each animal’s moods, habits, preferences, and unique needs.
-                </p>
-              </div>
+              <p>
+                Each caregiver looks after only six to seven animals, and that is where real bonds are formed. 
+                They come to understand each animal’s moods, habits, preferences, and unique needs.
+              </p>
             </div>
 
             <p>
@@ -79,7 +78,7 @@ const Trust = () => {
 
             {/* Bottom Image */}
             <div className="rounded-3xl overflow-hidden mt-12 shadow-lg">
-              <img src={new12} alt="Sanctuary environment" className="w-full h-96 object-cover" />
+              <img src={new12} alt="Sanctuary environment" className="w-full h-[500px] object-cover" />
             </div>
           </div>
 
