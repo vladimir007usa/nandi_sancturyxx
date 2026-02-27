@@ -138,6 +138,9 @@ const MahaveerStory = () => {
 
             {/* VIDEO SECTION */}
             <div className="my-12">
+              <h3 className="font-display text-2xl font-bold text-sanctuary-forest mb-6 text-center">
+                Watch Rescue Film
+              </h3>
               <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl" style={{ paddingTop: '56.25%' }}>
                 <iframe 
                   className="absolute top-0 left-0 w-full h-full"
