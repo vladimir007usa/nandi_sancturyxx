@@ -149,6 +149,21 @@ const VishvambarStory = () => {
               />
             </div>
 
+            {/* VIDEO SECTION */}
+            <div className="my-12">
+              <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl" style={{ paddingTop: '56.25%' }}>
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/mwJwnFAZfx4?si=9JYCtCZpNo9is7R4" 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
             <div className="text-center space-y-4 py-12">
               <p className="text-2xl font-display font-bold text-sanctuary-forest">
                 If you have read this far, it means you care.
