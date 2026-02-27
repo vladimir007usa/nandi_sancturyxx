@@ -4,7 +4,8 @@ import { Calendar, ArrowRight } from "lucide-react";
 
 // Updated Assets
 import new1 from "@/assets/new1.jpeg";
-import new6 from "@/assets/new6.jpeg"; // ADDED: New image for the second article
+import new6 from "@/assets/new6.jpeg"; 
+import new10 from "@/assets/new10.jpg"; // ADDED: New image for the rescue story
 
 interface Article {
   id: number;
@@ -19,6 +20,17 @@ interface Article {
 }
 
 const articles: Article[] = [
+  {
+    id: 3,
+    title: "Building Bonds of Trust",
+    subtitle: "Personal Attention & Lifelong Care",
+    excerpt: "The Nandi Sanctuary team has been instrumental in rescuing nearly 200 animals over the years. Today, more than 70 rescued cows and bulls receive daily, in-house care marked by deep personal attention. Each caregiver looks after only six to seven animals, and that is where real bonds are formed...",
+    date: "Feb 26, 2026",
+    readTime: "4 min read",
+    category: "Operations",
+    image: new10,
+    path: "/team-story" 
+  },
   {
     id: 1,
     title: "“Dharmo Raksati Raksita” in West Bengal",
@@ -38,7 +50,7 @@ const articles: Article[] = [
     date: "Jan 28, 2026",
     readTime: "8 min read",
     category: "Dogs",
-    image: new6, // UPDATED: Changed from dharmkshetra2 to new6
+    image: new6,
     path: "/path" 
   }
 ];
@@ -69,7 +81,7 @@ const Articles = () => {
               className="bg-card rounded-3xl overflow-hidden border border-border hover:shadow-md transition-all duration-500"
             >
               <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image Container - aspect ratio ensures both images look the same size */}
+                {/* Image Container */}
                 <div className="aspect-[16/10] lg:aspect-auto overflow-hidden">
                   <img 
                     src={article.image} 
