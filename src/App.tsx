@@ -26,6 +26,7 @@ import AngadStory from "./pages/angad";
 import DharmkshetraStory from "./pages/dharmkshetra"; 
 import Dharmo from "./pages/Dharmo"; 
 import Path from "./pages/Path";
+import Trust from "./pages/trust"; // ADDED: New page import
 
 // Helper component to force scroll to top on every page change
 const ScrollToTop = () => {
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/dharmkshetra" element={<DharmkshetraStory />} />
             <Route path="/dharmo" element={<Dharmo />} /> 
             <Route path="/path" element={<Path />} /> 
+            <Route path="/trust" element={<Trust />} /> {/* ADDED: New route for Trust page */}
 
             <Route path="/animal-rights" element={<AnimalRights />} /> 
             <Route path="/donate" element={<Donate />} />
