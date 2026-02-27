@@ -5,7 +5,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 // Updated Assets
 import new1 from "@/assets/new1.jpeg";
 import new6 from "@/assets/new6.jpeg"; 
-import new10 from "@/assets/new10.jpg"; // ADDED: New image for the rescue story
+import new10 from "@/assets/new10.jpg"; 
 
 interface Article {
   id: number;
@@ -29,7 +29,7 @@ const articles: Article[] = [
     readTime: "4 min read",
     category: "Operations",
     image: new10,
-    path: "/team-story" 
+    path: "/trust" // UPDATED: Path changed to /trust
   },
   {
     id: 1,
@@ -81,7 +81,6 @@ const Articles = () => {
               className="bg-card rounded-3xl overflow-hidden border border-border hover:shadow-md transition-all duration-500"
             >
               <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image Container */}
                 <div className="aspect-[16/10] lg:aspect-auto overflow-hidden">
                   <img 
                     src={article.image} 
