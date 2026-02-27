@@ -7,7 +7,8 @@ const Footer = () => {
       {/* Main Footer */}
       <div className="container-wide mx-auto px-4 md:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* About */}
+          
+          {/* About Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
@@ -28,7 +29,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a 
-                href="https://www.instagram.com/nandi_sanctuary?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                href="https://www.instagram.com/nandi_sanctuary" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
@@ -36,7 +37,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
-                href="https://www.youtube.com/@NandiSanctuary?sub_confirmation=1" 
+                href="https://www.youtube.com/@NandiSanctuary" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
@@ -46,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Quick Links */}
           <div>
             <h4 className="font-display text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -57,10 +58,20 @@ const Footer = () => {
                 <Link to="/our-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Our Mission</Link>
               </li>
               <li>
-                <Link to="/our-work" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">What We Do</Link>
+                <Link to="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Gallery</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Support Us */}
+          <div>
+            <h4 className="font-display text-lg font-semibold mb-6">Support Us</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Sponsor an Animal</Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Gallery</Link>
+                <Link to="/animal-rights" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Animals Legal Rights</Link>
               </li>
               <li>
                 <Link to="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Contact</Link>
@@ -68,31 +79,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Column 4: Location Info */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-6">Support Us</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Donate Now</Link>
-              </li>
-              <li>
-                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Sponsor an Animal</Link>
-              </li>
-              <li>
-                <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Monthly Giving</Link>
-              </li>
-              <li>
-                <Link to="/stories" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Partner With Us</Link>
-              </li>
-              <li>
-                <Link to="/animal-rights" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Animals legal rights</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-display text-lg font-semibold mb-6">Contact Us</h4>
+            <h4 className="font-display text-lg font-semibold mb-6">Get in Touch</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 text-sanctuary-gold" />
