@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { Heart, MapPin, Phone, Mail, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -43,6 +43,14 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
               >
                 <Youtube className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/people-for-animals-international/posts/?feedView=all" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
