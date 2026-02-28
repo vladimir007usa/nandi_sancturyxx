@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, MapPin, Scale } from "lucide-react"; 
+import { Heart, MapPin, Scale } from "lucide-react"; 
 
 // Base Assets
 import heroImage from "@/assets/hero-sanctuary.jpg";
@@ -109,7 +109,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Introduction Section - UPDATED WITH REQUESTED TEXT */}
+      {/* Introduction Section */}
       <section className="section-padding bg-background">
         <div className="container-wide mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -123,13 +123,10 @@ const Index = () => {
               
               <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Nandi Sanctuary is a rural animal welfare initiative in Nadia District, West Bengal, operating as a project of People for Animals International. It was founded with deep love and compassion by Dharmveer Singh and Yashomati Singh, this unique sanctuary offers rescued animals protection, happiness, dignity, and lifelong care.
+                  Nandi Sanctuary is a rural animal welfare initiative in Nadia District, West Bengal, operating as a project of People for Animals International.
                 </p>
                 <p>
                   The sanctuary is dedicated to the rescue, rehabilitation, and lifelong care of injured, abandoned, and vulnerable animals. 
-                </p>
-                <p>
-                  Yashomati Singh along with a committed team of local village women, plays a key role in its development and daily operations, creating meaningful rural employment while strengthening compassionate service.
                 </p>
               </div>
               
@@ -143,7 +140,7 @@ const Index = () => {
             <div className="relative">
               <img
                 src={cowPortrait}
-                alt="Rescued animal at Nandi Sanctuary"
+                alt="Rescued animal"
                 className="rounded-2xl shadow-elevated w-full h-[500px] object-cover"
               />
             </div>
@@ -201,8 +198,54 @@ const Index = () => {
         </div>
       </section>
 
+      {/* VIDEO SECTION */}
+      <section className="pb-20 bg-sanctuary-cream bg-pattern-leaves">
+        <div className="container-wide mx-auto px-4 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Watch How Rescue Happens
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl overflow-hidden shadow-elevated aspect-video bg-black">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/4IZ135T3DFQ?si=o94_YN9aXSS_zwu3" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-elevated aspect-video bg-black">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/oif8unYzpzc?si=Qss1zZVvy-wioYce" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-elevated aspect-video bg-black">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/gVqnp5mpV5U?si=1nw6q5NZwyVQcoif" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Stats */}
-      <section className="py-20 bg-primary">
+      <section className="py-20 bg-sanctuary-forest">
         <div className="container-wide mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-white">
             {impactStats.map((stat) => (
@@ -220,13 +263,11 @@ const Index = () => {
         <div className="container-wide mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="aspect-[5/4] overflow-hidden rounded-2xl shadow-elevated">
-                <img
-                  src={volunteersImage}
-                  alt="Volunteers"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src={volunteersImage}
+                alt="Volunteers"
+                className="rounded-2xl shadow-elevated w-full h-[400px] object-cover"
+              />
             </div>
             <div className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
@@ -236,24 +277,20 @@ const Index = () => {
                 Be part of something incredible. Create lasting change
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Join a movement of care, compassion, and purpose. Together, we transform lives, offer hope, and create a world where selfless acts of love ripple far beyond today.
+                Join a movement of care, compassion, and purpose. Together, we transform lives.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button 
-                  className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-sanctuary-gold text-sanctuary-forest hover:bg-sanctuary-gold/90 h-11 px-8 py-2"
-                >
-                  <Link to="/donate" className="flex items-center">
-                    <Heart className="w-5 h-5 mr-2" />
-                    Donate Now
-                  </Link>
-                </button>
-              </div>
+              <Button variant="default" size="lg" asChild>
+                <Link to="/donate" className="flex items-center gap-2">
+                  <Heart className="w-5 h-5" />
+                  Donate Now
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Final CTA Section */}
       <section className="section-padding bg-sanctuary-forest">
         <div className="container-narrow mx-auto text-center text-white">
           <Heart className="w-12 h-12 text-sanctuary-gold mx-auto mb-6" />
