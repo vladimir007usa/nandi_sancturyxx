@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { CreditCard, Landmark, Smartphone, X, Copy, CheckCircle2, ExternalLink } from 'lucide-react';
 import { toast } from "sonner"; 
 
-// Asset import - Ensure volunteers.jpg is in your src/assets folder
+// Asset import
 import volunteersImg from "@/assets/volunteers.jpg";
 
 const DonateSection = () => {
   const [activeModal, setActiveModal] = useState<"bank" | "upi" | "cardOptions" | null>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  // Official Payment Platform Links
   const paymentPlatforms = [
     { 
       name: "Razorpay", 
@@ -23,7 +22,6 @@ const DonateSection = () => {
       color: "bg-[#635bff]", 
       description: "International & Credit Cards"
     },
-    
     { 
       name: "PayPal", 
       url: "https://www.paypal.com/in/home", 
@@ -47,58 +45,58 @@ const DonateSection = () => {
   };
 
   return (
-    <section className="py-16 bg-sanctuary-cream/30">
-      <div className="container-wide mx-auto px-6">
+    <section className="w-full">
+      {/* 1. MAIN DONATION CARD (The Target for "Contribute Now") */}
+      <div 
+        id="donation-methods" 
+        className="bg-sanctuary-forest rounded-[2rem] p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden scroll-mt-20"
+      >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-sanctuary-gold/5 rounded-full -mr-32 -mt-32" />
         
-        {/* 1. VOLUNTEER IMAGE (Top Position - Text Removed) */}
-        <div className="w-full mb-12 overflow-hidden rounded-[2rem] shadow-xl border border-border group">
-          <img 
-            src={volunteersImg} 
-            alt="Nandi Sanctuary Volunteers" 
-            className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
+        <div className="relative z-10">
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
+            Your contribution, no matter the size, directly impacts the lives of animals in our care. 
+            Choose a donation method that works for you.
+          </p>
 
-        {/* 2. MAIN DONATION CARD */}
-        <div className="bg-sanctuary-forest rounded-[2rem] p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-sanctuary-gold/5 rounded-full -mr-32 -mt-32" />
-          
-          <div className="relative z-10">
-            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-              Ready to Make a Difference?
-            </h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
-              Your contribution, no matter the size, directly impacts the lives of animals in our care. 
-              Choose a donation method that works for you.
-            </p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <button 
+              onClick={() => setActiveModal('cardOptions')}
+              className="flex items-center gap-3 bg-sanctuary-gold hover:bg-sanctuary-gold/90 text-sanctuary-forest px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-black/20"
+            >
+              <CreditCard className="w-5 h-5" />
+              Donate by Card
+            </button>
 
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <button 
-                onClick={() => setActiveModal('cardOptions')}
-                className="flex items-center gap-3 bg-sanctuary-gold hover:bg-sanctuary-gold/90 text-sanctuary-forest px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-black/20"
-              >
-                <CreditCard className="w-5 h-5" />
-                Donate by Card
-              </button>
+            <button 
+              onClick={() => setActiveModal('bank')}
+              className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
+            >
+              <Landmark className="w-5 h-5" />
+              Bank Transfer
+            </button>
 
-              <button 
-                onClick={() => setActiveModal('bank')}
-                className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
-              >
-                <Landmark className="w-5 h-5" />
-                Bank Transfer
-              </button>
-
-              <button 
-                onClick={() => setActiveModal('upi')}
-                className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
-              >
-                <Smartphone className="w-5 h-5" />
-                UPI / Online
-              </button>
-            </div>
+            <button 
+              onClick={() => setActiveModal('upi')}
+              className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
+            >
+              <Smartphone className="w-5 h-5" />
+              UPI / Online
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* 2. VOLUNTEER IMAGE (Placed above the Confirmation section) */}
+      <div className="w-full mt-20 mb-12 overflow-hidden rounded-[2rem] shadow-xl border border-border group">
+        <img 
+          src={volunteersImg} 
+          alt="Nandi Sanctuary Volunteers" 
+          className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+        />
       </div>
 
       {/* MODAL SYSTEM */}
@@ -118,7 +116,7 @@ const DonateSection = () => {
               <X className="w-6 h-6" />
             </button>
 
-            {/* CASE 1: CARD PLATFORM SELECTION */}
+            {/* CARD MODAL */}
             {activeModal === 'cardOptions' && (
               <div className="text-center">
                 <div className="w-16 h-16 bg-sanctuary-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -126,7 +124,6 @@ const DonateSection = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-sanctuary-forest mb-2 font-display">Choose a Platform</h3>
                 <p className="text-gray-500 text-sm mb-6">Select your preferred payment gateway</p>
-                
                 <div className="space-y-3">
                   {paymentPlatforms.map((platform) => (
                     <a 
@@ -147,14 +144,13 @@ const DonateSection = () => {
               </div>
             )}
 
-            {/* CASE 2: BANK DETAILS */}
+            {/* BANK MODAL */}
             {activeModal === 'bank' && (
               <div className="text-center">
                 <div className="w-16 h-16 bg-sanctuary-forest/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Landmark className="w-8 h-8 text-sanctuary-forest" />
                 </div>
                 <h3 className="text-2xl font-bold text-sanctuary-forest mb-6 font-display">Bank Account Details</h3>
-                
                 <div className="space-y-4 text-left">
                   {[
                     { label: "Account Name", value: bankDetails.name },
@@ -165,14 +161,9 @@ const DonateSection = () => {
                     <div key={field.label} className="group relative bg-gray-50 p-4 rounded-2xl border border-gray-100 flex justify-between items-center">
                       <div>
                         <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">{field.label}</p>
-                        <p className={`font-bold text-gray-800 ${field.label.includes('Number') ? 'font-mono text-lg' : ''}`}>
-                          {field.value}
-                        </p>
+                        <p className={`font-bold text-gray-800 ${field.label.includes('Number') ? 'font-mono text-lg' : ''}`}>{field.value}</p>
                       </div>
-                      <button 
-                        onClick={() => copyToClipboard(field.value, field.label)}
-                        className="text-sanctuary-forest/40 hover:text-sanctuary-forest transition-colors p-2"
-                      >
+                      <button onClick={() => copyToClipboard(field.value, field.label)} className="text-sanctuary-forest/40 hover:text-sanctuary-forest transition-colors p-2">
                         {copiedField === field.label ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
                       </button>
                     </div>
@@ -181,7 +172,7 @@ const DonateSection = () => {
               </div>
             )}
 
-            {/* CASE 3: UPI DETAILS */}
+            {/* UPI MODAL */}
             {activeModal === 'upi' && (
               <div className="text-center">
                 <div className="w-16 h-16 bg-sanctuary-forest/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -198,10 +189,7 @@ const DonateSection = () => {
                     <p className="text-[10px] uppercase text-gray-500 font-bold tracking-widest">UPI ID</p>
                     <p className="font-bold text-sanctuary-forest text-lg">pfa@upi</p>
                   </div>
-                  <button 
-                    onClick={() => copyToClipboard("pfa@upi", "UPI ID")}
-                    className="text-sanctuary-forest/40 hover:text-sanctuary-forest p-2"
-                  >
+                  <button onClick={() => copyToClipboard("pfa@upi", "UPI ID")} className="text-sanctuary-forest/40 hover:text-sanctuary-forest p-2">
                     {copiedField === "UPI ID" ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
                   </button>
                 </div>
