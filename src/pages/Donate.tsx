@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-// FIXED: Changed "lucide-center" to "lucide-react"
 import { Heart, Users, PawPrint, Upload, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import DonateSection from "@/components/sections/DonateSection"; 
@@ -22,7 +21,19 @@ const Donate = () => {
   
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const donateSectionRef = useRef<HTMLDivElement>(null);
+
+  // FIXED: Reliable scroll logic using scrollIntoView with block: "start"
+  const scrollToDonate = () => {
+    if (donateSectionRef.current) {
+      donateSectionRef.current.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start" 
+      });
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -56,8 +67,6 @@ const Donate = () => {
 
     try {
       const submissionData = new FormData(e.currentTarget);
-      
-      // Formspree Endpoint
       const formspreeEndpoint = "https://formspree.io/f/mjgejpnl";
 
       const response = await fetch(formspreeEndpoint, {
@@ -70,8 +79,6 @@ const Donate = () => {
 
       if (response.ok) {
         toast.success("Thank you! Your details and screenshot have been sent.", { id: toastId });
-        
-        // Reset form and preview
         setFormData({ firstName: "", lastName: "", country: "", city: "", email: "", phone: "" });
         setImagePreview(null);
         if (fileInputRef.current) fileInputRef.current.value = "";
@@ -148,6 +155,7 @@ const Donate = () => {
           </div>
 
           <div className="space-y-6 max-w-5xl mx-auto mb-16">
+            {/* Daily Care Card */}
             <div className="flex flex-col md:flex-row bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
               <div className="md:w-1/3 h-72 md:h-auto md:aspect-square overflow-hidden shrink-0">
                 <img src={dogImage} alt="Support Dogs" className="w-full h-full object-cover" />
@@ -163,12 +171,13 @@ const Donate = () => {
                   Provide nutritious meals, specialized veterinary care, and a warm shelter for the many 
                   dogs rescued from the streets of West Bengal. Your support gives them a second chance at life.
                 </p>
-                <Button onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth'})} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
+                <Button onClick={scrollToDonate} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
                   Contribute Now
                 </Button>
               </div>
             </div>
 
+            {/* Monthly Care Card */}
             <div className="flex flex-col md:flex-row-reverse bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
               <div className="md:w-1/3 h-72 md:h-auto md:aspect-square overflow-hidden shrink-0">
                 <img src={staffImage} alt="Support Staff" className="w-full h-full object-cover" />
@@ -184,12 +193,13 @@ const Donate = () => {
                   Our staff works day and night to ensure every resident is loved and cared for. Help us 
                   provide stable salaries and equipment for our dedicated team of rescuers and keepers.
                 </p>
-                <Button onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth'})} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
+                <Button onClick={scrollToDonate} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
                   Contribute Now
                 </Button>
               </div>
             </div>
 
+            {/* Cow/Bull Card */}
             <div className="flex flex-col md:flex-row bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
               <div className="md:w-1/3 h-72 md:h-auto md:aspect-square overflow-hidden shrink-0">
                 <img src={cowImage} alt="Support Sanctuary" className="w-full h-full object-cover" />
@@ -205,14 +215,17 @@ const Donate = () => {
                   At Nandi Sanctuary, it is not just you who adopt a cow or a bull — in a way, they adopt you.
                   When you lovingly cover their daily and medical expenses, you become their protector.
                 </p>
-                <Button onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth'})} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
+                <Button onClick={scrollToDonate} className="w-fit bg-[#d2693e] hover:bg-[#b85b35] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-sm transition-all">
                   Contribute Now
                 </Button>
               </div>
             </div>
           </div>
 
-          <DonateSection />
+          {/* FIXED SCROLL WRAPPER: Added scroll-mt-32 for extra clearance */}
+          <div ref={donateSectionRef} className="scroll-mt-32">
+            <DonateSection />
+          </div>
         </div>
       </section>
 
@@ -292,6 +305,7 @@ const Donate = () => {
         </div>
       </section>
 
+      {/* Footer Sponsorship Call to Action */}
       <section className="py-20 bg-sanctuary-cream/30">
         <div className="container-narrow mx-auto text-center px-4">
           <Button asChild className="bg-sanctuary-forest hover:bg-sanctuary-forest/90 text-white rounded-xl px-8 py-6">
