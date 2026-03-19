@@ -34,6 +34,7 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
               >
+                <span className="sr-only">Instagram</span>
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
@@ -67,6 +68,16 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Gallery</Link>
+              </li>
+              <li>
+                <a 
+                  href="https://www.nandigram.in/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
+                >
+                  Sri NandiGram
+                </a>
               </li>
             </ul>
           </div>
