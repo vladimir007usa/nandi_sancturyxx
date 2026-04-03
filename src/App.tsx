@@ -27,6 +27,7 @@ import DharmkshetraStory from "./pages/dharmkshetra";
 import Dharmo from "./pages/Dharmo"; 
 import Path from "./pages/Path";
 import Trust from "./pages/trust"; // ADDED: New page import
+import Festivals from "./pages/Festivals"; 
 
 // Helper component to force scroll to top on every page change
 const ScrollToTop = () => {
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/festivals" element={<Festivals />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

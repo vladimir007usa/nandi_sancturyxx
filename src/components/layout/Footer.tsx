@@ -70,6 +70,9 @@ const Footer = () => {
                 <Link to="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Gallery</Link>
               </li>
               <li>
+                <Link to="/festivals" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Festival Calendar</Link>
+              </li>
+              <li>
                 <a 
                   href="https://www.nandigram.in/" 
                   target="_blank" 

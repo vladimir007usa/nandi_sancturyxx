@@ -69,8 +69,13 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Donate Button */}
-          <div className="hidden lg:block">
+          {/* Festivals & Donate Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button variant="outline" size="sm" asChild className="border-sanctuary-forest text-sanctuary-forest hover:bg-sanctuary-forest hover:text-white">
+              <Link to="/festivals" onClick={() => handleNavClick("/festivals")}>
+                Festivals
+              </Link>
+            </Button>
             <Button variant="donate" size="sm" asChild>
               <Link to="/donate" onClick={() => handleNavClick("/donate")}>
                 Donate
@@ -106,11 +111,18 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="donate" size="lg" className="mt-4" asChild>
-                <Link to="/donate" onClick={() => handleNavClick("/donate")}>
-                  Donate Now
-                </Link>
-              </Button>
+              <div className="flex flex-col gap-3 mt-4">
+                <Button variant="outline" size="lg" className="border-sanctuary-forest text-sanctuary-forest hover:bg-sanctuary-forest hover:text-white" asChild>
+                  <Link to="/festivals" onClick={() => handleNavClick("/festivals")}>
+                    Festivals Calendar
+                  </Link>
+                </Button>
+                <Button variant="donate" size="lg" asChild>
+                  <Link to="/donate" onClick={() => handleNavClick("/donate")}>
+                    Donate Now
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         )}
