@@ -29,19 +29,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <div className="container-wide mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border overflow-visible">
+      <div className="container-wide mx-auto px-6 overflow-visible">
+        <div className="flex items-center justify-between h-20 overflow-visible">
           {/* Logo Section */}
           <Link 
             to="/" 
-            className="flex items-center gap-4"
+            className="flex items-center gap-3 overflow-visible relative"
             onClick={() => handleNavClick("/")}
           >
             <img
               src={logo}
               alt="Logo"
-              className="h-16 w-16 md:h-20 md:w-20 object-contain"
+              className="h-24 w-24 md:h-28 md:w-28 object-contain relative z-10"
             />
             <div className="flex flex-col">
               <span className="text-[10px] uppercase tracking-tighter text-muted-foreground">A Project by</span>
