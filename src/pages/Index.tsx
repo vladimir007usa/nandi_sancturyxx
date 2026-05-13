@@ -143,6 +143,9 @@ const Index = () => {
                 alt="Rescued animal"
                 className="rounded-2xl shadow-elevated w-full h-[500px] object-cover"
               />
+              <p className="mt-4 text-center font-display text-2xl md:text-3xl font-bold text-sanctuary-forest italic">
+                "I’m Shyamaraman"
+              </p>
             </div>
           </div>
         </div>
