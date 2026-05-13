@@ -187,9 +187,9 @@ const DonateSection = () => {
                 <div className="bg-sanctuary-cream/50 p-4 rounded-2xl flex justify-between items-center">
                   <div className="text-left">
                     <p className="text-[10px] uppercase text-gray-500 font-bold tracking-widest">UPI ID</p>
-                    <p className="font-bold text-sanctuary-forest text-lg">pfa@upi</p>
+                    <p className="font-bold text-sanctuary-forest text-lg">xxxxxxxx</p>
                   </div>
-                  <button onClick={() => copyToClipboard("pfa@upi", "UPI ID")} className="text-sanctuary-forest/40 hover:text-sanctuary-forest p-2">
+                  <button onClick={() => copyToClipboard("xxxxxxxx", "UPI ID")} className="text-sanctuary-forest/40 hover:text-sanctuary-forest p-2">
                     {copiedField === "UPI ID" ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
                   </button>
                 </div>

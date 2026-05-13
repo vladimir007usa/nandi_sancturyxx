@@ -4,8 +4,12 @@ import { Calendar, ArrowRight } from "lucide-react";
 
 // Updated Assets
 import new1 from "@/assets/new1.jpeg";
-import new6 from "@/assets/new6.jpeg"; 
-import new10 from "@/assets/new10.jpg"; 
+import new6 from "@/assets/new6.jpeg";
+import new10 from "@/assets/new10.jpg";
+import new_im1 from "@/assets/new_im1.jpg";
+import new_im2 from "@/assets/new_im2.jpg";
+import new_im3 from "@/assets/new_im3.jpg";
+import new_im4 from "@/assets/new_im4.jpg"; 
 
 interface Article {
   id: number;
@@ -21,6 +25,18 @@ interface Article {
 
 const articles: Article[] = [
   {
+    id: 0,
+    title: "Young bull had been injured by a moving vehicle.",
+    subtitle: "Most of the times, time itself is the most important factor…",
+    excerpt: "At Nandi Sanctuary, we already had no space to bring more bulls, but the heart always finds space where compassion exists. And faith in the Lord gave us the courage to step forward for this innocent soul who had been left on the streets to struggle daily for food, water, shelter, and survival.",
+    date: "May 13, 2026",
+    readTime: "5 min read",
+    category: "Operations",
+    image: new_im1,
+    path: "/young-bull"
+  },
+  // Existing articles follow
+  {
     id: 3,
     title: "Building Bonds of Trust",
     subtitle: "Personal Attention & Lifelong Care",
@@ -29,7 +45,7 @@ const articles: Article[] = [
     readTime: "4 min read",
     category: "Operations",
     image: new10,
-    path: "/trust" // UPDATED: Path changed to /trust
+    path: "/trust"
   },
   {
     id: 1,
@@ -40,7 +56,7 @@ const articles: Article[] = [
     readTime: "5 min read",
     category: "Dharma",
     image: new1,
-    path: "/dharmo" 
+    path: "/dharmo"
   },
   {
     id: 2,
@@ -51,7 +67,7 @@ const articles: Article[] = [
     readTime: "8 min read",
     category: "Dogs",
     image: new6,
-    path: "/path" 
+    path: "/path"
   }
 ];
 
