@@ -16,18 +16,6 @@ const DonateSection = () => {
       color: "bg-[#3395ff]", 
       description: "Indian Cards & Netbanking"
     },
-    { 
-      name: "Stripe", 
-      url: "https://stripe.com/in", 
-      color: "bg-[#635bff]", 
-      description: "International & Credit Cards"
-    },
-    { 
-      name: "PayPal", 
-      url: "https://www.paypal.com/in/home", 
-      color: "bg-[#003087]", 
-      description: "Global Wallet Payments"
-    },
   ];
 
   const copyToClipboard = (text: string, field: string) => {
