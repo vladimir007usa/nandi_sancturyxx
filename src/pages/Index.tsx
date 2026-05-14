@@ -104,6 +104,13 @@ const Index = () => {
                   Animals Rights
                 </Link>
               </Button>
+
+              <Button variant="hero" size="xl" asChild className="md:hidden bg-white text-sanctuary-forest hover:bg-sanctuary-gold transition-colors">
+                <Link to="/donate" className="flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-red-500" />
+                  Donate Now
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
