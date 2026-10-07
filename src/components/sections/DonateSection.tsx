@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { CreditCard, Landmark, Smartphone, X, Copy, CheckCircle2, ExternalLink } from 'lucide-react';
-import { toast } from "sonner"; 
+import {
+  CreditCard,
+  Landmark,
+  Smartphone,
+  X,
+  Copy,
+  CheckCircle2,
+  ExternalLink
+} from 'lucide-react';
+import { toast } from "sonner";
 
 // Asset import
 import volunteersImg from "@/assets/volunteers.jpg";
@@ -9,14 +17,7 @@ const DonateSection = () => {
   const [activeModal, setActiveModal] = useState<"bank" | "upi" | "cardOptions" | null>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  const paymentPlatforms = [
-    { 
-      name: "Razorpay", 
-      url: "https://rzp.io/l/9Fu3UNLT", 
-      color: "bg-[#3395ff]", 
-      description: "Indian Cards & Netbanking"
-    },
-  ];
+
 
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -32,26 +33,30 @@ const DonateSection = () => {
     ifsc: "ICIC0001933"
   };
 
+  const handleRedirect = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="w-full">
       {/* 1. MAIN DONATION CARD (The Target for "Contribute Now") */}
-      <div 
-        id="donation-methods" 
+      <div
+        id="donation-methods"
         className="bg-sanctuary-forest rounded-[2rem] p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden scroll-mt-20"
       >
         <div className="absolute top-0 right-0 w-64 h-64 bg-sanctuary-gold/5 rounded-full -mr-32 -mt-32" />
-        
+
         <div className="relative z-10">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Ready to Make a Difference?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
-            Your contribution, no matter the size, directly impacts the lives of animals in our care. 
+            Your contribution, no matter the size, directly impacts the lives of animals in our care.
             Choose a donation method that works for you.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <button 
+            <button
               onClick={() => setActiveModal('cardOptions')}
               className="flex items-center gap-3 bg-sanctuary-gold hover:bg-sanctuary-gold/90 text-sanctuary-forest px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-black/20"
             >
@@ -59,7 +64,7 @@ const DonateSection = () => {
               Donate by Card
             </button>
 
-            <button 
+            <button
               onClick={() => setActiveModal('bank')}
               className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
             >
@@ -67,7 +72,7 @@ const DonateSection = () => {
               Bank Transfer
             </button>
 
-            <button 
+            <button
               onClick={() => setActiveModal('upi')}
               className="flex items-center gap-3 border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
             >
@@ -80,61 +85,67 @@ const DonateSection = () => {
 
       {/* 2. VOLUNTEER IMAGE (Placed above the Confirmation section) */}
       <div className="w-full mt-20 mb-12 overflow-hidden rounded-[2rem] shadow-xl border border-border group">
-        <img 
-          src={volunteersImg} 
-          alt="Nandi Sanctuary Volunteers" 
+        <img
+          src={volunteersImg}
+          alt="Nandi Sanctuary Volunteers"
           className="w-full h-[300px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
 
       {/* MODAL SYSTEM */}
       {activeModal && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-300"
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/60 backdrop-blur-md animate-in fade-in duration-300"
           onClick={() => setActiveModal(null)}
         >
-          <div 
-            className="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl animate-in zoom-in duration-300"
+          <div
+            className="bg-white rounded-3xl p-6 md:p-8 w-full max-w-md relative shadow-2xl animate-in zoom-in duration-300 transition-all duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               onClick={() => setActiveModal(null)}
-              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full text-gray-400 transition-colors"
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full text-gray-400 transition-colors z-10"
             >
               <X className="w-6 h-6" />
             </button>
 
             {/* CARD MODAL */}
             {activeModal === 'cardOptions' && (
-              <div className="text-center">
-                <div className="w-16 h-16 bg-sanctuary-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CreditCard className="w-8 h-8 text-sanctuary-gold" />
+              <div className="text-center animate-in fade-in slide-in-from-bottom-4 duration-300">
+                {/* Header */}
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-[#fcf8f2] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CreditCard className="w-7 h-7 text-sanctuary-gold font-light" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-sanctuary-forest font-display">Choose a Platform</h3>
+                  <p className="text-gray-500 text-sm font-body mt-1 text-center">
+                    Select your preferred payment gateway
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-sanctuary-forest mb-2 font-display">Choose a Platform</h3>
-                <p className="text-gray-500 text-sm mb-6">Select your preferred payment gateway</p>
-                <div className="space-y-3">
-                  {paymentPlatforms.map((platform) => (
-                    <a 
-                      key={platform.name}
-                      href={platform.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-between p-4 rounded-2xl text-white font-bold transition-all transform hover:scale-[1.02] shadow-md hover:shadow-lg ${platform.color}`}
-                    >
-                      <div className="text-left">
-                        <span className="block text-lg">{platform.name}</span>
-                        <span className="text-[10px] opacity-80 font-normal uppercase tracking-wider">{platform.description}</span>
-                      </div>
-                      <ExternalLink className="w-5 h-5 opacity-70" />
-                    </a>
-                  ))}
+
+                {/* Methods List */}
+                <div className="w-full">
+                  <button
+                    onClick={() => handleRedirect("https://pages.razorpay.com/pl_Gw2RBFpH9vK1SW/view")}
+                    className="w-full flex items-center justify-between bg-[#3891fe] hover:bg-blue-500 transition-colors p-5 rounded-2xl text-left group shadow-sm shadow-[#3891fe]/20"
+                  >
+                    <div>
+                      <span className="font-bold text-xl text-white block leading-tight mb-1" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
+                        Razorpay
+                      </span>
+                      <span className="text-[11px] text-white/90 uppercase tracking-wide font-medium block">
+                        INDIAN CARDS & NETBANKING
+                      </span>
+                    </div>
+                    <ExternalLink className="w-5 h-5 text-white/90 group-hover:text-white transition-colors shrink-0 flex-none" />
+                  </button>
                 </div>
               </div>
             )}
 
             {/* BANK MODAL */}
             {activeModal === 'bank' && (
-              <div className="text-center">
+              <div className="text-center animate-in fade-in slide-in-from-bottom-4 duration-300">
                 <div className="w-16 h-16 bg-sanctuary-forest/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Landmark className="w-8 h-8 text-sanctuary-forest" />
                 </div>
@@ -162,12 +173,12 @@ const DonateSection = () => {
 
             {/* UPI MODAL */}
             {activeModal === 'upi' && (
-              <div className="text-center">
+              <div className="text-center animate-in fade-in slide-in-from-bottom-4 duration-300">
                 <div className="w-16 h-16 bg-sanctuary-forest/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="w-8 h-8 text-sanctuary-forest" />
                 </div>
                 <h3 className="text-2xl font-bold text-sanctuary-forest mb-2 font-display">Scan to Donate</h3>
-                <div className="bg-white p-4 border-2 border-dashed border-sanctuary-gold/30 rounded-3xl inline-block mb-6 shadow-inner">
+                <div className="bg-white p-4 border-2 border-dashed border-sanctuary-gold/30 rounded-3xl inline-block mb-6 shadow-inner animate-pulse">
                   <div className="w-48 h-48 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden">
                     <Smartphone className="w-10 h-10 text-gray-300" />
                   </div>
