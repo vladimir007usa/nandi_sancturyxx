@@ -8,7 +8,7 @@
           "value": "nandi-sancturyxx.vercel.app"
         }
       ],
-      "destination": "https://nandisanctuary.com/$1",
+      "destination": "https://www.nandisanctuary.com/$1",
       "permanent": true
     }
   ],
