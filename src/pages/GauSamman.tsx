@@ -9,7 +9,6 @@ import {
   Share2, 
   Sparkles, 
   ShieldCheck, 
-  ExternalLink,
   Copy,
   Check,
   Calendar,
@@ -327,7 +326,7 @@ export default function GauSamman() {
       ctx.font = "22px 'Source Sans 3', sans-serif";
       ctx.fillStyle = "#666666";
       ctx.fillText(`Certificate ID: ${certId}`, 520, 1400);
-      ctx.fillText("Initiative: www.gausamman.cloud", 520, 1440);
+      ctx.fillText("Initiative: Nandi Sanctuary Mayapur", 520, 1440);
 
       // 8. Footer - Right Side: Boss Signature Section
       const sigX = width - 480;
@@ -484,20 +483,10 @@ export default function GauSamman() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 href="#pledge-form"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-400 text-stone-900 font-bold hover:bg-amber-300 transition-all shadow-card hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-amber-400 text-stone-900 font-bold hover:bg-amber-300 transition-all shadow-card hover:scale-105"
               >
                 <Sparkles className="w-5 h-5" />
                 Fill Form & Get Certificate
-              </a>
-
-              <a
-                href="https://www.gausamman.cloud/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/15 hover:bg-white/25 text-white font-medium border border-white/25 transition-all"
-              >
-                Visit Official Portal
-                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
 
@@ -834,7 +823,7 @@ export default function GauSamman() {
                               <strong>ID:</strong> {certId}
                             </p>
                             <p className="text-[9px] text-stone-400">
-                              Verify: www.gausamman.cloud
+                              Verify: www.nandisanctuary.com
                             </p>
                           </div>
                         </div>
@@ -909,84 +898,6 @@ export default function GauSamman() {
 
           </div>
 
-        </div>
-      </section>
-
-      {/* Information About Gau Samman Ahvaan Abhiyan */}
-      <section className="py-16 bg-muted/30 border-t border-border">
-        <div className="container-wide mx-auto px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            
-            <div className="text-center mb-12">
-              <span className="text-accent font-semibold text-xs uppercase tracking-wider block mb-2">
-                About The Movement
-              </span>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                Why Gau Samman Ahvaan Abhiyan?
-              </h2>
-              <div className="w-16 h-1 bg-amber-500 mx-auto mt-3 rounded-full" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-              <div className="space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                <p>
-                  In Indian heritage and spiritual consciousness, <strong>Mother Cow (Gau Mata)</strong> represents 
-                  the heart of nourishment, unconditional giving, and earthly harmony. Yet millions of sacred cows 
-                  and bulls suffer abandonment, slaughter, and neglect on roads.
-                </p>
-                <p>
-                  <strong>Gau Samman Ahvaan Abhiyan</strong> was founded to awaken individual conscience and unite communities 
-                  in active protection, legal shelter, and lifelong dignified sanctuary care.
-                </p>
-                <p>
-                  Under the stewardship of <strong>Dharmveer Singh</strong> at <strong>Nandi Sanctuary in Sri Dham Mayapur</strong>, 
-                  rescued cows and calves receive medical care, 24/7 nutrition, love, and protection.
-                </p>
-              </div>
-
-              <div className="bg-card p-6 rounded-2xl border border-border shadow-soft space-y-4">
-                <h3 className="font-display text-lg font-bold text-foreground flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-amber-600" />
-                  Your Support Powers:
-                </h3>
-                <ul className="space-y-3 text-xs md:text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                    <span><strong>Lifelong Medical Care:</strong> Rescuing severely injured, acid-burned, and road-accident cows.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                    <span><strong>Free Rural Veterinary Camps:</strong> Providing free medical aid to 1000+ farmer families across a 70 km radius.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
-                    <span><strong>Compassion & Education:</strong> Educating youth and farmers on organic cow-based agriculture.</span>
-                  </li>
-                </ul>
-
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <Button variant="donate" size="sm" asChild>
-                    <Link to="/donate" className="flex items-center gap-2">
-                      <Heart className="w-4 h-4" />
-                      Support Cow Sanctuary
-                    </Link>
-                  </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a
-                      href="https://www.gausamman.cloud/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5"
-                    >
-                      Visit Official Campaign
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
 
