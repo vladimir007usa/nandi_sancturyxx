@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, MapPin, Scale } from "lucide-react"; 
+import { Heart, MapPin, Scale, Award, Sparkles, ShieldCheck } from "lucide-react"; 
 
 // Base Assets
 import heroImage from "@/assets/hero-sanctuary.jpg";
 import cowPortrait from "@/assets/cow.jpg";
 import volunteersImage from "@/assets/volunteers.jpg";
+import gauSammanEmblem from "@/assets/gau_samman_emblem.png";
 
 // Section Assets
 import gausevaImg from "@/assets/gauseva.jpeg";
@@ -94,6 +95,13 @@ const Index = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
+              <Button variant="hero" size="xl" asChild className="bg-amber-600 text-white hover:bg-amber-500 transition-colors shadow-elevated">
+                <Link to="/go-samman-aahvaan" className="flex items-center gap-2">
+                  <Award className="w-5 h-5 text-amber-200" />
+                  Go Samman Aahvaan
+                </Link>
+              </Button>
+
               <Button variant="heroOutline" size="xl" asChild>
                 <Link to="/stories">Rescue Stories</Link>
               </Button>
@@ -154,6 +162,85 @@ const Index = () => {
                 "I’m Shyamaraman"
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gau Samman Ahvaan Abhiyan Banner */}
+      <section className="py-16 bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+        
+        <div className="container-wide mx-auto px-4 md:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/20 border border-amber-300/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
+                Special Initiative • Gau Samman Ahvaan Abhiyan
+              </div>
+
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-white leading-tight">
+                Stand for Cow Protection & Receive Your 
+                <span className="block text-amber-300">Certificate of Appreciation</span>
+              </h2>
+
+              <p className="text-base md:text-lg text-amber-100/90 max-w-2xl leading-relaxed">
+                Join hands with <strong>Nandi Sanctuary, Mayapur</strong>. Fill out our simple online form, 
+                take the sacred pledge of reverence and care, and instantly receive your official, personalized 
+                <strong> Certificate of Appreciation</strong> endorsed by our Director, <strong>Dharmveer Singh</strong>.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Button size="xl" asChild className="bg-amber-400 hover:bg-amber-300 text-stone-900 font-bold shadow-elevated">
+                  <Link to="/go-samman-aahvaan" className="flex items-center gap-2">
+                    <Award className="w-5 h-5" />
+                    Go Samman Aahvaan — Get Your Certificate
+                  </Link>
+                </Button>
+                
+                <Button variant="heroOutline" size="xl" asChild className="border-white/30 hover:bg-white/10 text-white">
+                  <a href="https://www.gausamman.cloud/" target="_blank" rel="noopener noreferrer">
+                    Official Campaign Details
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex justify-center">
+              <div className="relative group p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-elevated max-w-sm text-center">
+                <div className="w-36 h-36 mx-auto rounded-full p-2 bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 shadow-md mb-4">
+                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden p-1 shadow-inner">
+                    <img 
+                      src={gauSammanEmblem} 
+                      alt="Gau Samman Emblem" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+
+                <h3 className="font-display text-lg font-bold text-white mb-1">
+                  ॥ गौ सम्मान आह्वान अभियान ॥
+                </h3>
+                <p className="text-xs text-amber-200 mb-4">
+                  सेवा • सुरक्षा • सम्मान
+                </p>
+
+                <div className="bg-white/15 rounded-xl p-3 text-xs text-amber-100 text-left space-y-1.5 border border-white/10">
+                  <p className="font-semibold text-white">✓ Instant Downloadable Certificate</p>
+                  <p className="text-[11px] text-amber-200/80">Signed by Dharmveer Singh, Director, Nandi Sanctuary Mayapur</p>
+                </div>
+
+                <div className="mt-4">
+                  <Link
+                    to="/go-samman-aahvaan"
+                    className="text-xs font-bold text-amber-300 hover:text-amber-200 underline inline-flex items-center gap-1"
+                  >
+                    Click here to sign and receive certificate →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

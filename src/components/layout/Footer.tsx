@@ -61,6 +61,11 @@ const Footer = () => {
             <h4 className="font-display text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
+                <Link to="/go-samman-aahvaan" className="text-amber-300 font-semibold hover:text-white transition-colors text-sm flex items-center gap-1.5">
+                  ★ Go Samman Aahvaan
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">About Us</Link>
               </li>
               <li>
@@ -89,6 +94,9 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-6">Support Us</h4>
             <ul className="space-y-3">
+              <li>
+                <Link to="/go-samman-aahvaan" className="text-amber-300 hover:text-white transition-colors text-sm">Get Appreciation Certificate</Link>
+              </li>
               <li>
                 <Link to="/donate" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm">Sponsor an Animal</Link>
               </li>

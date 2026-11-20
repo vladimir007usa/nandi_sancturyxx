@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
@@ -8,6 +8,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Our Mission", path: "/our-work" },
+  { name: "Go Samman Aahvaan", path: "/go-samman-aahvaan" },
   { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
   { name: "Articles", path: "/articles" },
@@ -69,8 +70,18 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Donate Button */}
+          {/* Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <Button 
+              size="sm" 
+              asChild 
+              className="bg-amber-600 hover:bg-amber-700 text-white shadow-soft transition-all font-semibold"
+            >
+              <Link to="/go-samman-aahvaan" onClick={() => handleNavClick("/go-samman-aahvaan")}>
+                <Award className="w-4 h-4 mr-1 text-amber-200" />
+                Go Samman Aahvaan
+              </Link>
+            </Button>
             <Button variant="donate" size="sm" asChild>
               <Link to="/donate" onClick={() => handleNavClick("/donate")}>
                 Donate
@@ -107,6 +118,16 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4">
+                <Button 
+                  size="lg" 
+                  asChild
+                  className="bg-amber-600 hover:bg-amber-700 text-white font-semibold"
+                >
+                  <Link to="/go-samman-aahvaan" onClick={() => handleNavClick("/go-samman-aahvaan")}>
+                    <Award className="w-4 h-4 mr-2" />
+                    Go Samman Aahvaan (Certificate)
+                  </Link>
+                </Button>
                 <Button variant="donate" size="lg" asChild>
                   <Link to="/donate" onClick={() => handleNavClick("/donate")}>
                     Donate Now

@@ -29,6 +29,7 @@ import Path from "./pages/Path";
 import Trust from "./pages/trust";
 import YoungBull from "./pages/YoungBull";
 import Festivals from "./pages/Festivals"; 
+import GauSamman from "./pages/GauSamman"; 
 
 // Helper component to force scroll to top on every page change
 const ScrollToTop = () => {
@@ -76,6 +77,9 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/festivals" element={<Festivals />} />
+            <Route path="/go-samman-aahvaan" element={<GauSamman />} />
+            <Route path="/gau-samman" element={<GauSamman />} />
+            <Route path="/certificate" element={<GauSamman />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
