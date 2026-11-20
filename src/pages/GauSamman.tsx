@@ -589,7 +589,7 @@ export default function GauSamman() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="name@example.com"
+                    placeholder="rakeshjames009@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-10 bg-background"
@@ -605,7 +605,7 @@ export default function GauSamman() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 9609115016"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="h-10 bg-background"
