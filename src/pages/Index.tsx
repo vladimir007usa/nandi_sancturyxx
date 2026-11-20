@@ -95,13 +95,6 @@ const Index = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
-              <Button variant="hero" size="xl" asChild className="bg-amber-600 text-white hover:bg-amber-500 transition-colors shadow-elevated">
-                <Link to="/go-samman-aahvaan" className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-amber-200" />
-                  Go Samman Aahvaan
-                </Link>
-              </Button>
-
               <Button variant="heroOutline" size="xl" asChild>
                 <Link to="/stories">Rescue Stories</Link>
               </Button>
