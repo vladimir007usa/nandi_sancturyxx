@@ -537,7 +537,7 @@ export default function GauSamman() {
                   <Input
                     id="fullName"
                     type="text"
-                    placeholder="e.g. Ramesh Chandra Sharma"
+                    placeholder="e.g. Rakesh Naskar"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
